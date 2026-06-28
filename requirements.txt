@@ -1,0 +1,31 @@
+# =============================================================================
+# Redrob Hackathon — Ranker dependencies
+# Python 3.11+ required
+#
+# Install:  pip install -r requirements.txt
+# =============================================================================
+
+# ── Core pipeline ─────────────────────────────────────────────────────────────
+# The ranker itself uses only Python stdlib (gzip, json, csv, math, datetime,
+# pathlib, argparse, dataclasses, collections, re, time).
+# No external packages are required to run rank.py.
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest==8.3.5               # test runner (test_ranker.py)
+pytest-timeout==2.3.1       # enforce < 5 min runtime in CI
+
+# ── Progress display ──────────────────────────────────────────────────────────
+tqdm==4.67.1                # progress bar when processing 100K candidates
+
+# ── Optional: faster CSV / data wrangling ─────────────────────────────────────
+# Uncomment if you refactor scorers to use vectorised pandas operations
+# pandas==2.2.3
+
+# ── Sandbox (Streamlit deployment) ────────────────────────────────────────────
+streamlit==1.45.1           # web UI for the required sandbox submission
+# watchdog==6.0.0           # optional: faster Streamlit hot-reload on Mac/Linux
+
+# ── Development utilities ─────────────────────────────────────────────────────
+# Uncomment as needed during development — not required for rank.py to run
+# ipython==8.27.0           # better interactive shell for exploration
+# memory-profiler==0.61.0   # profile RAM usage (constraint: <= 16 GB)
